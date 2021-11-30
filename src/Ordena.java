@@ -13,8 +13,8 @@ public class Ordena {
         Algoritmo Bubble Sort.
     */
     public void bubbleSort(int[] vetor) {
-
         countComparacoes = 0;
+
         for(int i = 0; i < vetor.length - 1; i++) {
             for(int j = 0; j < vetor.length - 1 - i; j++) {
                 countComparacoes++;
@@ -31,10 +31,13 @@ public class Ordena {
         Algoritmo Insertion Sort.
     */
     public void insertionSort(int[] vetor) {
+        countComparacoes = 0;
         int atual;
+    
         for (int i = 1; i < vetor.length; i++) {
             atual = vetor[i];
             int j = i - 1;
+            countComparacoes++;
             while ((j >= 0) && (vetor[j]) > atual) {
                 vetor[j + 1] = vetor[j]; // copia o valor para a direita da posição atual (j)
                 j--;
@@ -48,9 +51,12 @@ public class Ordena {
     */
     public void selectionSort(int[] vetor) {
         int indiceMenor;
+        countComparacoes = 0;
+
         for (int i = 0; i < vetor.length; i++) {
             indiceMenor = i;
             for (int j = i + 1; j < vetor.length; j++) {
+                countComparacoes++;
                 if (vetor[j] < vetor[indiceMenor]) {
                     indiceMenor = j;
                 }

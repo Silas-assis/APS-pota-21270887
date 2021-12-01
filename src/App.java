@@ -2,16 +2,20 @@ import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        final int TAM_MAX = 5;
+
+        int[] vetorOriginal = new int[TAM_MAX];
 
         Ordena ordena = new Ordena();
 
-        int[] vetorOriginal = new int[5];
+        Heap heap = new Heap(TAM_MAX);
 
         for (int i = 0; i < vetorOriginal.length; i++) {
             vetorOriginal[i] = (int) (Math.random() * vetorOriginal.length);
+            heap.insert(new No(vetorOriginal[i]));
         }
 
-        System.out.println("");
+        System.out.println(" ");
 
         ordenaBubbleSort(ordena, vetorOriginal);
 
@@ -23,6 +27,21 @@ public class App {
 
         ordenaQuickSortDecrescente(ordena, vetorOriginal);
 
+        ordenaHeapSort(heap, vetorOriginal);
+
+    }
+
+    private static void ordenaHeapSort(Heap heap, int[] vetorOriginal) {
+
+        imprimirVetorOriginal(vetorOriginal);
+
+        heap.heapSort();
+
+        System.out.println("Ordenação Heap Sort: ");
+        System.out.println(heap.showHeap());
+        // System.out.println("Comparações Bubble Sort: " +
+        // ordena.getCountComparacoes());
+        System.out.println("-------------------------");
     }
 
     /*
@@ -80,7 +99,7 @@ public class App {
             System.out.print(vetorAuxSelection[i] + " ");
         }
         System.out.println(" ");
-        System.out.println("Comparações Selection Sort: " +ordena.getCountComparacoes());
+        System.out.println("Comparações Selection Sort: " + ordena.getCountComparacoes());
         System.out.println("-------------------------");
     }
 
@@ -99,7 +118,8 @@ public class App {
             System.out.print(vetorAux[i] + " ");
         }
         System.out.println(" ");
-        // System.out.println("Comparações Bubble Sort: " + ordena.getCountComparacoes());
+        // System.out.println("Comparações Bubble Sort: " +
+        // ordena.getCountComparacoes());
         System.out.println("-------------------------");
     }
 
@@ -123,8 +143,11 @@ public class App {
         System.out.println("-------------------------");
     }
 
+    /*
+     * Método que imprime o vetor original.
+     */
     private static void imprimirVetorOriginal(int[] vetorOriginal) {
-        System.out.println("Vetor Original:");
+        System.out.println("Vetor Original Tamanho 5:");
         for (int i = 0; i < vetorOriginal.length; i++) {
             System.out.print(vetorOriginal[i] + " ");
         }

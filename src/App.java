@@ -79,8 +79,7 @@ public class App {
             System.out.print(vetorAuxQuickCrescente[i] + " ");
         }
         System.out.println(" ");
-        // System.out.println("Comparações Bubble Sort: " +
-        // ordena.getCountComparacoes());
+        System.out.println("Comparações Quick Sort Crescente: " + ordena.getCountComparacoes());
         System.out.println("-------------------------");
     }
 
@@ -118,8 +117,7 @@ public class App {
             System.out.print(vetorAux[i] + " ");
         }
         System.out.println(" ");
-        // System.out.println("Comparações Bubble Sort: " +
-        // ordena.getCountComparacoes());
+        System.out.println("Comparações Insertion Sort: " + ordena.getCountComparacoes());
         System.out.println("-------------------------");
     }
 

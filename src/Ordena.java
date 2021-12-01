@@ -37,8 +37,8 @@ public class Ordena {
         for (int i = 1; i < vetor.length; i++) {
             atual = vetor[i];
             int j = i - 1;
-            countComparacoes++;
             while ((j >= 0) && (vetor[j]) > atual) {
+                countComparacoes++;
                 vetor[j + 1] = vetor[j]; // copia o valor para a direita da posição atual (j)
                 j--;
             }
@@ -85,6 +85,7 @@ public class Ordena {
         Algoritmo Quick Sort Crescente.
     */
     private void quickSortCrescente(int[] vetor, int lo, int hi) {
+        countComparacoes = 0;
         int esq = lo;
         int dir = hi;
 
@@ -92,18 +93,23 @@ public class Ordena {
 
         while ( esq <= dir ) { // enquanto os indices não se cruzarem
             while (vetor[esq] < pivo) {
+                countComparacoes++;
                 esq++;
             }
             while (vetor[dir] > pivo) {
+                countComparacoes++;
                 dir--;
             }
+            countComparacoes++;
             if( esq <= dir ) {
                 swapQuickSort(vetor, esq, dir);
                 esq++;
                 dir--;
             }
         }
+        countComparacoes++;
         if(dir - lo > 0) quickSortCrescente(vetor, lo, dir); // chamada recursiva do vetor à esquerda
+        countComparacoes++;
         if(hi - esq > 0) quickSortCrescente(vetor, esq, hi); // chamada recursiva do vetor à direita
     }
 
